@@ -1,10 +1,10 @@
-const b = prompt('Ширина');
-const h = prompt('Высота');
-const a = prompt('Длина');
-const d = prompt('Диам');
+const width = prompt('Ширина');
+const height = prompt('Высота');
+const length = prompt('Длина');
+const diameter = prompt('Диам');
 
 
-let sum = a * b
-let SPipe = Math.PI * Math.pow(d / 2, 2);
-let n = Math.floor(sum / SPipe) * h
-alert(`В контейнер поместится${n} метров трубы`)
+let sum = length * width;
+let SPipe = Math.PI * Math.pow(diameter / 2, 2);
+let meter = Math.floor(sum / SPipe) * height;
+alert(`В контейнер поместится${meter} метров трубы`);
