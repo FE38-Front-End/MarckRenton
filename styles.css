@@ -1,0 +1,72 @@
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container {
+    font-size: 21px;
+    margin: 0 auto;
+    width: 10em;
+}
+
+.screen {
+    border: 1px solid #ffc001;
+    background: rgb(146, 146, 137);
+    color: #ffc001;
+    line-height: 3em;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 228px;
+    height: 2em;
+    padding-bottom: 1em;
+    margin: 0 auto;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid #ffc001;
+    background: rgba(0, 0, 0, 0.28);
+    color: #ffc001;
+    cursor: pointer;
+    float: left;
+    font: inherit;
+    margin: 0.25em;
+    width: 2em;
+    height: 2em;
+    transition: all 0.5s;
+}
+
+button:hover {
+    background: rgba(146, 146, 137, 0.47);
+}
+
+.clear {
+    width: 91%;
+}
+
+button:focus {
+    outline: 0;
+}
+
+@media (min-width: 420px) {
+    .container {
+        width: 12em;
+    }
+
+    .viewer {
+        width: 8.5em;
+    }
+
+    button {
+        margin: 0.5em;
+    }
+}
