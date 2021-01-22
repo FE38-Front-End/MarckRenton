@@ -11,7 +11,7 @@
 // Задаю значение минимум 50 т.к. меньшее значение получается слишком маленький квадрат
 document.querySelector('.btnSquareArea').onclick = () => {
   const btnCircleDiameter = document.querySelector('.btnCircleDiameter');
-  const inpSquareArea = +document.querySelector('.inpSquareArea').value;
+  let inpSquareArea = +document.querySelector('.inpSquareArea').value;
   if (inpSquareArea.length !== 0 && inpSquareArea <= 49) {
     alert('Вы ввели некорректное значение!');
   } else {
@@ -19,16 +19,16 @@ document.querySelector('.btnSquareArea').onclick = () => {
     drawSquare(inpSquareArea);
   }
 }
-//функция делает проверку на площадь круга, пустое значение и 0. Разблокирует следующую кнопку.
+//функция делает проверку на площадь круга, задаю значение больше 5 т.к. меньше- не видно. Разблокирует следующую кнопку.
 document.querySelector('.btnCircleDiameter').onclick = () => {
   const btnStep = document.querySelector('.btnStep');
-  const inpSquareArea = +document.querySelector('.inpSquareArea').value;
-  const inpCircleDiameter = +document.querySelector('.inpCircleDiameter').value;
+  let inpSquareArea = +document.querySelector('.inpSquareArea').value;
+  let inpCircleDiameter = +document.querySelector('.inpCircleDiameter').value;
   if (inpSquareArea < inpCircleDiameter) {
     alert('Площадь круга не может быть больше площади квадрата. Введите другое значене!')
     return;
-  } else if (inpCircleDiameter === '' || inpCircleDiameter === 0) {
-    alert('Вы не ввели диаметр круга!');
+  } else if (inpCircleDiameter === '' || inpCircleDiameter < 5) {
+    alert('Вы ввели некорректное значение!');
     return;
   }
   if (inpCircleDiameter !== '') {
