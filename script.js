@@ -31,33 +31,28 @@ document.querySelector('.btnCircleDiameter').onclick = () => {
     alert('Вы ввели некорректное значение!');
     return;
   }
-  if (inpCircleDiameter !== '') {
+  if (inpCircleDiameter) {
     btnStep.disabled = false;
     drawCircle(inpCircleDiameter);
   }
 }
-//функция отрисовывоет квадрат. Но я бы сделал это в css и addClass
+
+//функция задаёт габариты и присваевает стили
 function drawSquare(inpSquareArea) {
   const divSquare = document.querySelector('.square');
-  divSquare.style.border = "1px solid black";
   divSquare.style.width = `${inpSquareArea}px`;
   divSquare.style.height = `${inpSquareArea}px`;
-  divSquare.style.position = 'relative';
-  divSquare.style.overflow = 'hidden';
-  divSquare.style.borderRadius = "8px";
+  divSquare.classList.add('divSquare');
 }
-//функция отрисовывоет круг. Но я бы сделал это в css и addClass
+
+//функция задаёт габариты и присваевает стили
 function drawCircle(inpCircleDiameter) {
   const circle = document.querySelector('.circle');
   circle.style.width = `${inpCircleDiameter}px`;
   circle.style.height = `${inpCircleDiameter}px`;
-  circle.style.borderRadius = "100%";
-  circle.style.background = "rgba(0, 0, 0, .3)";
-  circle.style.position = 'absolute';
-  circle.style.top = '50%';
-  circle.style.left = '50%';
-  circle.style.transform = 'translate(-50%, -50%)';
+  circle.classList.add('drawCircle');
 }
+
 // функция проверяет шаг передвижения круга. Далее высчитываю перемещение круга и не даю ему выйти за пределы квадрата,
 //использую Comma оператор. На btnGroup  вешаю событие, и через всплытие получаю значение кнопки на которой произошёл event,
 //что бы не обращаться к каждой отдельно.
@@ -66,23 +61,23 @@ document.querySelector('.btnGroup').addEventListener('click', event => {
   const divSquare = document.querySelector('.square');
   let step = document.querySelector('.inpStep').value;
   let action = event.target.innerText;
-  if (step === '' || step === '0') {
+  if (!step) {
     alert('Так шагать невозможно!');
     return;
   }
   step = +step;
   switch (action) {
     case "Up":
-      circle.style.top = Math.max(circle.offsetTop - step, circle.offsetWidth / 2) + 'px';
+      circle.style.top = `${Math.max(circle.offsetTop - step, circle.offsetWidth / 2)}px`;
       break;
     case "Left":
-      circle.style.left = Math.max(circle.offsetLeft - step, circle.offsetWidth / 2) + 'px';
+      circle.style.left = `${Math.max(circle.offsetLeft - step, circle.offsetWidth / 2)}px`;
       break;
     case "Down":
-      circle.style.top = Math.min(circle.offsetTop + step, divSquare.clientWidth - circle.offsetWidth / 2) + 'px';
+      circle.style.top = `${Math.min(circle.offsetTop + step, divSquare.clientWidth - circle.offsetWidth / 2)}px`;
       break;
     case "Right":
-      circle.style.left = Math.min(circle.offsetLeft + step, divSquare.clientWidth - circle.offsetWidth / 2) + 'px';
+      circle.style.left = `${Math.min(circle.offsetLeft + step, divSquare.clientWidth - circle.offsetWidth / 2)}px`;
       break;
   }
 });
